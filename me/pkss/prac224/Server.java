@@ -36,15 +36,31 @@ public class Server {
 
     protected Integer exTwo(int N) {
         int sumOfSimpleNums = 0;
+        int flag = 0;
         // Начинаем с 2 т.к. простое число это любое число большее 1
         for (int i = 2; i < N; i++) {
             BigInteger bigInt = BigInteger.valueOf(i);
-            if (bigInt.isProbablePrime((int) Math.log(i))){
+            if (bigInt.isProbablePrime((int) Math.log(i))) {
+                flag = 1;
                 sumOfSimpleNums += 1;
+                trueOrFalse(flag);
+            } else {
+                flag = 2;
+                trueOrFalse(flag);
             }
         }
         System.out.println(sumOfSimpleNums);
         return sumOfSimpleNums;
+    }
+
+    protected Boolean trueOrFalse(int flag) {
+        if (flag == 1) {
+            System.out.println("true");
+            return true;
+        } else {
+            System.out.println("false");
+            return false;
+        }
     }
 
     protected Double exFour(double numT, double numS) {
